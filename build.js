@@ -21,20 +21,20 @@ try {
     // Extract Data
     const groomName = weddingData.couple.groom.name;
     const brideName = weddingData.couple.bride.name;
-    const groomFirst = groomName.split(' ')[0];
+    const groomFirst = groomName.split(' ')[2];
     const brideFirst = brideName.split(' ')[0];
     const date = weddingData.wedding.displayDate;
     const inviteText = weddingData.messages.inviteText;
     const websiteUrl = weddingData.websiteUrl || '#';
 
     // Format Parents Names
-    const gParents = `${weddingData.couple.groom.parents.father}<br>&<br>${weddingData.couple.groom.parents.mother}`;
-    const bParents = `${weddingData.couple.bride.parents.father}<br>&<br>${weddingData.couple.bride.parents.mother}`;
+    const gParents = `${weddingData.couple.groom.parents.mother}<br>&<br>${weddingData.couple.groom.parents.father}`;
+    const bParents = `${weddingData.couple.bride.parents.mother}<br>&<br>${weddingData.couple.bride.parents.father}`;
 
     // === 1. Meta Tags ===
-    const title = `${groomFirst} Weds ${brideFirst} | A Royal Wedding Invite`;
+    const title = `${brideFirst} Weds ${groomFirst} | A Royal Wedding Invite`;
     const desc = `${inviteText} Join us on ${date}.`;
-    const imageAlt = `${groomFirst} & ${brideFirst} Wedding Invitation`;
+    const imageAlt = `${brideFirst} & ${groomFirst} Wedding Invitation`;
 
     html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
     html = html.replace(/<meta\s+name="description"\s+content="[^"]*">/i, `<meta name="description" content="${escapeHtml(desc)}">`);
@@ -45,7 +45,7 @@ try {
         'og:title': title,
         'og:url': websiteUrl,
         'og:description': desc,
-        'og:site_name': `${groomFirst} & ${brideFirst} Wedding`,
+        'og:site_name': `${brideFirst} & ${groomFirst} Wedding`,
         'og:image:alt': imageAlt,
         'twitter:title': title,
         'twitter:url': websiteUrl,
@@ -75,15 +75,15 @@ try {
         }
     };
 
-    replaceText('groom-name', groomName);
-    replaceText('bride-name', brideName);
+    replaceText('groom-name', groomFirst);
+    replaceText('bride-name', brideFirst);
     replaceText('date-text', date);
     replaceText('invite-text', inviteText);
     replaceText('grooms-parents-name', gParents);
     replaceText('brides-parents-name', bParents);
-    replaceText('bride-groom-title', `${groomName}<br>&<br>${brideName}`);
+    replaceText('bride-groom-title', `${brideName}<br>&<br>${groomName}`);
     replaceText('couple-quote', weddingData.messages.coupleQuote);
-    replaceText('end-title', `${groomFirst} & ${brideFirst}`);
+    replaceText('end-title', `${brideFirst} & ${groomFirst}`);
     replaceText('footer-thank-you', weddingData.messages.thankYou);
     replaceText('footer-hashtag', weddingData.couple.hashtag);
 
@@ -97,7 +97,7 @@ try {
                             <div class="map-visual-wrapper" style="width: 100%; padding: 0.5rem; background: #fff3db; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
                                 <img src="${c.mapImage}" alt="${c.name} Map" style="width: 100%; height: auto; border-radius: 12px; display: block;">
                             </div>
-                            <h3 class="route-venue">${c.venue}</h3>
+                            <h3 class="route-venue">${c.venue.split(',')[1] + ", " + c.venue.split(',')[2]}</h3>
                             <a href="${c.googleMapsUrl}" class="btn-primary" target="_blank">
                                 <span class="btn-text">Get Directions</span>
                             </a>

@@ -27,13 +27,13 @@
             "time": "7:00 PM",
             "venue": "Poolside, Crowne Plaza, Mayur Vihar",
             "showLocation": false,
-            "dressCode": "Glitter and Glam"
+            "dressCode": "Turn Up in Style"
         },
         {
             "name": "Haldi",
             "date": "Apr 17, 2026",
             "time": "10:00 AM",
-            "venue": "Poolside, Crown Plaza, Mayur Vihar",
+            "venue": "Poolside, Crowne Plaza, Mayur Vihar",
             "showLocation": false,
             "dressCode": "Paint it all Yellow"
         },
@@ -41,12 +41,12 @@
             "name": "Vivah",
             "date": "Apr 17, 2026",
             "time": "6:00 PM",
-            "venue": "Orchid Ballroom, Crown Plaza, Mayur Vihar",
+            "venue": "Mayur Ballroom, Crowne Plaza, Mayur Vihar",
             "googleMapsUrl": "https://share.google/z9wq4TyBwLSTnOLny",
             "mapImage": "assets/images/map.png",
             "highlight": true,
             "showLocation": true,
-            "dressCode": "Bring your best blitz"
+            "dressCode": "Occasion Ready"
         }
     ],
     "contact": {
@@ -59,8 +59,8 @@
         "coupleQuote": "Two souls, one heart."
     },
     "music": {
-        "url": "assets/music/music.mpeg",
+        "url": "assets/music/music.mp3",
         "autoplay": true
     },
-    "websiteUrl": "https://takshweddinginvitedemo.vercel.app/"
+    "websiteUrl": "https://riyawedsmoon.netlify.app/"
 }
