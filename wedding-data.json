@@ -1,0 +1,66 @@
+{
+    "couple": {
+        "groom": {
+            "name": "Chandra Prakash Moon",
+            "parents": {
+                "mother": "Smt. Nutan Singh",
+                "father": "Sm. Shailendra Prasad"
+            }
+        },
+        "bride": {
+            "name": "Riya Mahanti",
+            "parents": {
+                "mother": "Smt. Mala Mahanti",
+                "father": "Sm. Satyajit Mahanti"
+            }
+        },
+        "hashtag": "#RiyaWedsHerMoon"
+    },
+    "wedding": {
+        "date": "2026-04-17T18:00:00Z",
+        "displayDate": "APRIL 17th, 2026"
+    },
+    "celebrations": [
+        {
+            "name": "Sangeet",
+            "date": "Apr 16, 2026",
+            "time": "7:00 PM",
+            "venue": "Poolside, Crowne Plaza, Mayur Vihar",
+            "showLocation": false,
+            "dressCode": "Glitter and Glam"
+        },
+        {
+            "name": "Haldi",
+            "date": "Apr 17, 2026",
+            "time": "10:00 AM",
+            "venue": "Poolside, Crown Plaza, Mayur Vihar",
+            "showLocation": false,
+            "dressCode": "Paint it all Yellow"
+        },
+        {
+            "name": "Vivah",
+            "date": "Apr 17, 2026",
+            "time": "6:00 PM",
+            "venue": "Orchid Ballroom, Crown Plaza, Mayur Vihar",
+            "googleMapsUrl": "https://share.google/z9wq4TyBwLSTnOLny",
+            "mapImage": "assets/images/map.png",
+            "highlight": true,
+            "showLocation": true,
+            "dressCode": "Bring your best blitz"
+        }
+    ],
+    "contact": {
+        "whatsapp": "9852973546",
+        "instagram": ""
+    },
+    "messages": {
+        "inviteText": "With joyful hearts, we invite you to share in our happiness as we begin our new life together. Join us for an evening of love, laughter, and celebration.",
+        "thankYou": "Thank you for being part of our journey.",
+        "coupleQuote": "Two souls, one heart."
+    },
+    "music": {
+        "url": "assets/music/music.mpeg",
+        "autoplay": true
+    },
+    "websiteUrl": "https://takshweddinginvitedemo.vercel.app/"
+}
