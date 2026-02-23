@@ -32,7 +32,8 @@ document.querySelector(".rsvp-form").addEventListener("submit", function (e) {
 
     const phoneNumber = weddingData.contact.whatsapp;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const whatsappWebURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const whatsappAppURL = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
 
     // Show Custom Modal
     const modal = document.getElementById("rsvp-modal");
@@ -40,32 +41,51 @@ document.querySelector(".rsvp-form").addEventListener("submit", function (e) {
     const timerElement = document.getElementById("redirect-timer");
 
     if (modal && whatsappBtn && timerElement) {
-        whatsappBtn.href = whatsappURL;
+        whatsappBtn.href = whatsappWebURL;
         modal.classList.add("show");
 
         let countdown = 5;
         let isRedirected = false;
 
-        const triggerRedirect = () => {
+        const triggerRedirect = (isManual = false) => {
             if (isRedirected) return;
             isRedirected = true;
             clearInterval(interval);
             modal.classList.remove("show");
-            window.open(whatsappURL, "_blank");
+
+            if (isManual) {
+                window.open(whatsappWebURL, "_blank");
+            } else {
+                // Try to open WhatsApp app directly via deep link
+                window.location.href = whatsappAppURL;
+
+                // Fallback to web link if deep link fails (e.g. app not installed)
+                setTimeout(() => {
+                    if (document.hasFocus()) {
+                        window.location.href = whatsappWebURL;
+                    }
+                }, 500);
+            }
         };
 
         const interval = setInterval(() => {
             countdown--;
             timerElement.textContent = countdown;
-            if (countdown <= 0) triggerRedirect();
+            if (countdown <= 0) triggerRedirect(false);
         }, 1000);
 
         whatsappBtn.onclick = (e) => {
-            e.preventDefault();
-            triggerRedirect();
+            // Only handle manual (trusted) clicks here to avoid recursion
+            // and open in a new tab for manual clicks.
+            if (e.isTrusted) {
+                e.preventDefault();
+                triggerRedirect(true);
+            }
+            // For programmatic .click(), the default browser action (following href)
+            // will occur because e.isTrusted will be false.
         };
     } else {
-        // Fallback to direct redirect if modal elements missing
-        window.open(whatsappURL, "_blank");
+        // Fallback to direct redirect
+        window.location.href = whatsappWebURL;
     }
 });
