@@ -258,7 +258,7 @@
             <section id="rsvp" class="pathway-section fade-in">
                 <div class="container">
                     <h2 class="section-title">Please RSVP</h2>
-                    <form class="rsvp-form" onsubmit="event.preventDefault(); alert('Thank you for RSVPing!');">
+                    <form class="rsvp-form">
                         <input type="text" placeholder="Your Name" required>
                         <select>
                             <option value="yes">Joyfully Attending</option>
@@ -274,6 +274,22 @@
 
         </div>
 
+    </div>
+
+    <!-- RSVP Success Modal -->
+    <div id="rsvp-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="assets/images/lord.png" alt="Decoration" class="modal-deco">
+                <h2 class="modal-title">Thank You!</h2>
+                <p id="modal-message">We have received your response. Redirecting you to WhatsApp in <span
+                        id="redirect-timer">5</span> seconds...</p>
+                <a id="modal-whatsapp-btn" href="#" class="btn-primary" target="_blank">
+                    <span><img class="whatsapp-icon" src="assets/images/whatsapp.png" alt="WhatsApp"></span>
+                    Open WhatsApp Now
+                </a>
+            </div>
+        </div>
     </div>
 
     <!-- 4. FOOTER -->

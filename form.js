@@ -32,8 +32,40 @@ document.querySelector(".rsvp-form").addEventListener("submit", function (e) {
 
     const phoneNumber = weddingData.contact.whatsapp;
     const encodedMessage = encodeURIComponent(message);
-
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-    window.open(whatsappURL, "_blank");
+    // Show Custom Modal
+    const modal = document.getElementById("rsvp-modal");
+    const whatsappBtn = document.getElementById("modal-whatsapp-btn");
+    const timerElement = document.getElementById("redirect-timer");
+
+    if (modal && whatsappBtn && timerElement) {
+        whatsappBtn.href = whatsappURL;
+        modal.classList.add("show");
+
+        let countdown = 5;
+        let isRedirected = false;
+
+        const triggerRedirect = () => {
+            if (isRedirected) return;
+            isRedirected = true;
+            clearInterval(interval);
+            modal.classList.remove("show");
+            window.open(whatsappURL, "_blank");
+        };
+
+        const interval = setInterval(() => {
+            countdown--;
+            timerElement.textContent = countdown;
+            if (countdown <= 0) triggerRedirect();
+        }, 1000);
+
+        whatsappBtn.onclick = (e) => {
+            e.preventDefault();
+            triggerRedirect();
+        };
+    } else {
+        // Fallback to direct redirect if modal elements missing
+        window.open(whatsappURL, "_blank");
+    }
 });
