@@ -283,7 +283,7 @@ h3 {
   /* Add padding for content */
 }
 
-.footer-overlay > .end-title {
+.footer-overlay>.end-title {
   color: #fff;
   font-size: 2rem;
   font-weight: 700;
@@ -423,7 +423,7 @@ h3 {
   /* Let clicks pass unless explicit pointer-events:auto on children */
 }
 
-.hero-content-overlay > * {
+.hero-content-overlay>* {
   pointer-events: auto;
   /* Re-enable for interactive children */
 }
@@ -444,7 +444,7 @@ h3 {
   pointer-events: none;
 }
 
-.segue-content-overlay > * {
+.segue-content-overlay>* {
   pointer-events: auto;
 }
 
@@ -567,6 +567,7 @@ h3 {
 }
 
 @keyframes bounce {
+
   0%,
   20%,
   50%,
@@ -718,6 +719,7 @@ h3 {
 }
 
 @keyframes royalGlow {
+
   0%,
   100% {
     box-shadow:
@@ -905,11 +907,9 @@ a.btn-primary {
   padding: 14px;
   border-radius: 22px;
 
-  background: linear-gradient(
-    135deg,
-    rgba(215, 180, 120, 0.9),
-    rgba(150, 110, 60, 0.9)
-  );
+  background: linear-gradient(135deg,
+      rgba(215, 180, 120, 0.9),
+      rgba(150, 110, 60, 0.9));
 
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.35),
@@ -924,11 +924,9 @@ a.btn-primary {
   content: "";
   position: absolute;
   inset: -25px;
-  background: radial-gradient(
-    circle,
-    rgba(215, 180, 120, 0.15),
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(215, 180, 120, 0.15),
+      transparent 70%);
   z-index: -1;
 }
 
@@ -1204,4 +1202,82 @@ a.btn-primary {
 
 .btn-calendar:active {
   transform: translateY(0);
+}
+
+.route-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.route-item {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.route-divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  align-self: stretch;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .route-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .route-divider {
+    width: 60%;
+    height: 1px;
+    align-self: center;
+    margin: 0;
+  }
+
+  .route-item {
+    max-width: 100%;
+  }
+}
+
+.map-visual-wrapper {
+  width: 100%;
+  padding: 0.5rem;
+  background: #fff3db;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.map-visual-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.route-event-name {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--cream);
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 200;
+}
+
+.route-city {
+  margin-top: -0.5rem;
+  opacity: 0.8;
+  font-size: 1rem;
+  color: var(--cream);
+  text-align: center;
 }

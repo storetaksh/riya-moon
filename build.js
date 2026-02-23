@@ -91,22 +91,34 @@ try {
     // === 3. Links & Route ===
     // Re-generate the entire Route section to support multiple locations side-by-side
     const routeItemsHtml = weddingData.celebrations
-        .filter(c => c.googleMapsUrl && c.showLocation)
-        .map(c => `
-                        <div class="route-item" style="flex: 1; min-width: 280px; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                            <div class="map-visual-wrapper" style="width: 100%; padding: 0.5rem; background: #fff3db; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                                <img src="${c.mapImage}" alt="${c.name} Map" style="width: 100%; height: auto; border-radius: 12px; display: block;">
-                            </div>
-                            <h3 class="route-venue">${c.venue.split(',')[1] + ", " + c.venue.split(',')[2]}</h3>
+        .filter(c => (c.googleMapsUrl || c.mapImage) && c.showLocation)
+        .map((c, index, array) => {
+            const itemHtml = `
+                        <div class="route-item">
+                            ${c.mapImage ? `
+                            <div class="map-visual-wrapper">
+                                <img src="${c.mapImage}" alt="${c.name} Map">
+                            </div>` : ''}
+                            <h4 class="route-event-name">${c.name}</h4>
+                            <p class="route-city">${c.venue.split(',').slice(1).join(',').trim()}</p>
+                            ${c.googleMapsUrl ? `
                             <a href="${c.googleMapsUrl}" class="btn-primary" target="_blank">
                                 <span class="btn-text">Get Directions</span>
-                            </a>
-                        </div>`).join('\n');
+                            </a>` : ''}
+                        </div>`;
+
+            // Add a subtle vertical divider between items if there are more than one
+            if (index < array.length - 1) {
+                return itemHtml + `
+                        <div class="route-divider"></div>`;
+            }
+            return itemHtml;
+        }).join('\n');
 
     const newRouteSection = `<section id="route" class="pathway-section fade-in">
                 <div class="container">
                     <h2 class="section-title">See The Route</h2>
-                    <div class="route-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem; margin-top: 2rem; width: 100%;">
+                    <div class="route-grid">
 ${routeItemsHtml}
                     </div>
                 </div>
@@ -126,11 +138,12 @@ ${routeItemsHtml}
     const cardsHtml = weddingData.celebrations.map(event => `
                         <div class="event-card${event.highlight ? ' highlight-card' : ''}">
                             <div class="card-inner">
-                                <h3>${event.name}</h3>
-                                <p class="date">${event.date}</p>
+                                <h3><b>${event.name}</b></h3>
+                                <p class="date" style="font-size: 1.3rem;"><b>${event.date}</b></p>
                                 <p class="time">${event.time}</p>
                                 <p class="venue">${event.venue}</p>
                                 ${event.dressCode ? `<p class="dress-code">Dress Code: ${event.dressCode}</p>` : ''}
+                                ${event.calendarUrl ? `<a href="${event.calendarUrl}" target="_blank" class="btn-calendar">Add to Calendar</a>` : ''}
                             </div>
                         </div>`).join('\n');
 
