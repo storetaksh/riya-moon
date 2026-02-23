@@ -25,7 +25,7 @@
             "name": "Mehndi",
             "date": "Apr 16, 2026",
             "time": "4:00 PM",
-            "venue": "Club Lounge, Crowne Plaza, Mayur Vihar",
+            "venue": "Club Lounge, Crowne Plaza, Mayur Vihar, New Delhi",
             "showLocation": false,
             "dressCode": "Petals & Pastels",
             "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Riya+%26+Moon+-+Mehndi&dates=20260416T160000/20260416T190000&details=Dress+Code:+Petals+%26+Pastels&location=Club+Lounge,+Crowne+Plaza,+Mayur+Vihar&ctz=Asia/Kolkata"
@@ -34,7 +34,7 @@
             "name": "Sangeet",
             "date": "Apr 16, 2026",
             "time": "7:00 PM",
-            "venue": "Poolside, Crowne Plaza, Mayur Vihar",
+            "venue": "Poolside, Crowne Plaza, Mayur Vihar, New Delhi",
             "showLocation": false,
             "dressCode": "Turn Up in Style",
             "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Riya+%26+Moon+-+Sangeet&dates=20260416T190000/20260416T230000&details=Dress+Code:+Turn+Up+in+Style&location=Poolside,+Crowne+Plaza,+Mayur+Vihar&ctz=Asia/Kolkata"
@@ -43,7 +43,7 @@
             "name": "Haldi",
             "date": "Apr 17, 2026",
             "time": "10:00 AM",
-            "venue": "Poolside, Crowne Plaza, Mayur Vihar",
+            "venue": "Poolside, Crowne Plaza, Mayur Vihar, New Delhi",
             "showLocation": false,
             "dressCode": "Paint it all Yellow",
             "calendarUrl": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Riya+%26+Moon+-+Haldi&dates=20260417T100000/20260417T130000&details=Dress+Code:+Paint+it+all+Yellow&location=Poolside,+Crowne+Plaza,+Mayur+Vihar&ctz=Asia/Kolkata"
@@ -52,7 +52,7 @@
             "name": "Vivah",
             "date": "Apr 17, 2026",
             "time": "6:00 PM",
-            "venue": "Mayur Ballroom, Crowne Plaza, Mayur Vihar",
+            "venue": "Mayur Ballroom, Crowne Plaza, Mayur Vihar, New Delhi",
             "googleMapsUrl": "https://maps.app.goo.gl/663JbCKsqEBy9ttq7",
             "mapImage": "assets/images/map.png",
             "highlight": false,
