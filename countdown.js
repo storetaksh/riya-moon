@@ -12,7 +12,12 @@
             return;
         }
 
-        const eventDate = new Date(weddingData.wedding.date).getTime() - oneDay;
+        // Create Date object for the wedding
+        const wDate = new Date(weddingData.wedding.date);
+
+        // Target exact midnight (00:00:00 local time) one day before the wedding day
+        const eventDate = new Date(wDate.getFullYear(), wDate.getMonth(), wDate.getDate(), 0, 0, 0).getTime();
+
         const now = new Date().getTime();
         const diff = eventDate - now;
 
